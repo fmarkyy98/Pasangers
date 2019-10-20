@@ -1,20 +1,60 @@
-// Passengers.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <strstream>
+using namespace std;
+
+const int MAX_N = 100;
+int buses[MAX_N];
+
+string stringJoin(int* array, unsigned int arrayLength, string separator = " ")
+{
+	strstream result;
+	result << "";
+	if (arrayLength != 0)
+	{
+		result << array[0];
+		for (int i = 1; i < arrayLength; ++i)
+		{
+			result << separator << array[i];
+		}
+	}
+	result << '\0';
+	string resultStr = result.str();
+	return resultStr;
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	int busesLength;
+	int busSize;
+
+	cin >> busesLength >> busSize;
+	for (int i = 0; i < busesLength; ++i)
+	{
+		cin >> buses[i];
+	}
+
+	int busesManyPassenger[MAX_N];
+	int busesManyPassengerLength = 0;
+
+	int busesFewPassenger[MAX_N];
+	int busesFewPassengerLength = 0;
+
+	double manyPassengerValue = 0.8 * busSize;
+	double fewPassengerValue = 0.2 * busSize;
+
+	for (int i = 0; i < busesLength; i++)
+	{
+		if (buses[i] > manyPassengerValue)
+		{
+			busesManyPassenger[busesManyPassengerLength] = i + 1;
+			++busesManyPassengerLength;
+		}
+		else if (buses[i] < fewPassengerValue)
+		{
+			busesFewPassenger[busesFewPassengerLength] = i + 1;
+			++busesFewPassengerLength;
+		}
+	}
+	cout << busesManyPassengerLength << " " << stringJoin(busesManyPassenger, busesManyPassengerLength) << endl;
+	cout << busesFewPassengerLength << " " << stringJoin(busesFewPassenger, busesFewPassengerLength) << endl;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

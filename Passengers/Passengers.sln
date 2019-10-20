@@ -5,6 +5,19 @@ VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Passengers", "Passengers\Passengers.vcxproj", "{F4B6602D-7517-43BB-AFF9-188E3900E27D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{899EBBD0-EC71-4D65-AF63-049768B4CC30}"
+	ProjectSection(SolutionItems) = preProject
+		Test\Out01.txt = Test\Out01.txt
+		Test\Out02.txt = Test\Out02.txt
+		Test\Test01.txt = Test\Test01.txt
+		Test\Test02.txt = Test\Test02.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0BB9A655-C4FD-4ACE-A111-DBEE64E552C3}"
+	ProjectSection(SolutionItems) = preProject
+		task(hu).pdf = task(hu).pdf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -24,6 +37,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{899EBBD0-EC71-4D65-AF63-049768B4CC30} = {0BB9A655-C4FD-4ACE-A111-DBEE64E552C3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {27B5F830-0EA4-41A5-8208-D9D0E5FB28BF}
